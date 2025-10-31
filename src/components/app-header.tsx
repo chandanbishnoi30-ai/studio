@@ -19,6 +19,8 @@ export function AppHeader() {
   const getPageTitle = () => {
     if (pathname === '/') return 'Dashboard';
     if (pathname === '/summarizer') return 'AI Summarizer';
+    if (pathname === '/notes') return 'Notes';
+    if (pathname === '/time-management') return 'Time Management';
     return 'StudyFlow';
   };
 

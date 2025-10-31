@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Home, Lightbulb, Bot } from 'lucide-react';
+import { Home, Lightbulb, Bot, FileText, Clock } from 'lucide-react';
 
 import {
   Sidebar,
@@ -49,6 +49,30 @@ export function AppSidebar() {
               <Link href="/summarizer">
                 <Lightbulb />
                 <span>AI Summarizer</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              isActive={pathname === '/notes'}
+              tooltip="Notes"
+            >
+              <Link href="/notes">
+                <FileText />
+                <span>Notes</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              isActive={pathname === '/time-management'}
+              tooltip="Time Management"
+            >
+              <Link href="/time-management">
+                <Clock />
+                <span>Time Management</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
