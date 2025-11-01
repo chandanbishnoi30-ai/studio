@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Bell } from 'lucide-react';
+import { ThemeSwitcher } from './theme-switcher';
 
 export function AppHeader() {
   const pathname = usePathname();
@@ -30,7 +31,8 @@ export function AppHeader() {
     <header className="sticky top-0 z-10 flex h-14 items-center gap-4 border-b bg-background/60 px-4 backdrop-blur-sm sm:px-6">
       <SidebarTrigger className="hidden max-md:flex" />
       <h1 className="text-lg font-semibold md:text-xl">{getPageTitle()}</h1>
-      <div className="ml-auto flex items-center gap-4">
+      <div className="ml-auto flex items-center gap-2">
+        <ThemeSwitcher />
         <Button variant="ghost" size="icon" className="rounded-full">
           <Bell className="h-5 w-5" />
           <span className="sr-only">Toggle notifications</span>
