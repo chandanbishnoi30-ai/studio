@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Home, Lightbulb, Bot, FileText, Clock, GraduationCap } from 'lucide-react';
+import { Home, Lightbulb, Bot, FileText, Clock, GraduationCap, BookHeart } from 'lucide-react';
 
 import {
   Sidebar,
@@ -85,6 +85,18 @@ export function AppSidebar() {
               <Link href="/master-classes">
                 <GraduationCap />
                 <span>Master Classes</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              isActive={pathname === '/motivational-books'}
+              tooltip="Motivational Books"
+            >
+              <Link href="/motivational-books">
+                <BookHeart />
+                <span>Motivational Books</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

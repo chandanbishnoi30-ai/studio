@@ -22,6 +22,7 @@ export function AppHeader() {
     if (pathname === '/notes') return 'Notes';
     if (pathname === '/time-management') return 'Time Management';
     if (pathname === '/master-classes') return 'Master Classes';
+    if (pathname === '/motivational-books') return 'Motivational Books';
     return 'StudyFlow';
   };
 
