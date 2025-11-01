@@ -1,15 +1,18 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 export function NotesView() {
   return (
     <Card>
       <CardHeader>
         <CardTitle>My Notes</CardTitle>
+        <CardDescription>A place to jot down your thoughts and ideas.</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>This is where you can take and manage your notes.</p>
+        <div className="border rounded-md p-4 bg-secondary/50">
+          <p>welcome my name is chandan bishnoi</p>
+        </div>
       </CardContent>
     </Card>
   );
