@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Progress } from '@/components/ui/progress';
-import { BarChart as BarChartIcon, BookOpen, Calendar, Clock, PlusCircle, Target } from 'lucide-react';
+import { BarChart as BarChartIcon, BookOpen, Calendar, Clock, PlusCircle, SlidersHorizontal, Target } from 'lucide-react';
 import { format, formatDistanceToNow, parseISO } from 'date-fns';
 import {
   ChartContainer,
@@ -24,6 +24,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Slider } from '@/components/ui/slider';
 
 const addAssignmentSchema = z.object({
   name: z.string().min(1, 'Assignment name is required.'),
@@ -34,6 +35,7 @@ export function DashboardClient() {
   const [courses, setCourses] = useState<Course[]>(MOCK_COURSES);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [isAssignmentDialogOpen, setIsAssignmentDialogOpen] = useState(false);
+  const [focusLevel, setFocusLevel] = useState(50);
 
   const form = useForm<z.infer<typeof addAssignmentSchema>>({
     resolver: zodResolver(addAssignmentSchema),
@@ -94,7 +96,7 @@ export function DashboardClient() {
 
   return (
     <div className="grid gap-8">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Courses</CardTitle>
@@ -123,6 +125,22 @@ export function DashboardClient() {
           <CardContent>
             <div className="text-2xl font-bold">{Math.round(overallProgress)}%</div>
             <Progress value={overallProgress} className="mt-2 h-2" />
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Focus Mode</CardTitle>
+            <SlidersHorizontal className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+             <div className="text-2xl font-bold">{focusLevel}%</div>
+             <Slider
+                value={[focusLevel]}
+                onValueChange={(value) => setFocusLevel(value[0])}
+                max={100}
+                step={1}
+                className="my-2"
+              />
           </CardContent>
         </Card>
         <StudyPlanGenerator courses={courses} />
