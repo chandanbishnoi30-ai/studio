@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import type { Course, Assignment } from '@/lib/types';
 import { MOCK_COURSES } from '@/lib/mock-data';
 import { Button } from '@/components/ui/button';
@@ -10,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Progress } from '@/components/ui/progress';
-import { BarChart as BarChartIcon, BookOpen, Calendar, Clock, PlusCircle, SlidersHorizontal, Target } from 'lucide-react';
+import { BarChart as BarChartIcon, BookOpen, Calendar, Clock, PlusCircle, SlidersHorizontal, Target, Lightbulb, FileText } from 'lucide-react';
 import { format, formatDistanceToNow, parseISO } from 'date-fns';
 import {
   ChartContainer,
@@ -144,6 +145,45 @@ export function DashboardClient() {
           </CardContent>
         </Card>
         <StudyPlanGenerator courses={courses} />
+      </div>
+
+      <div>
+        <h2 className="text-xl font-semibold mb-4">Quick Access</h2>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Link href="/summarizer">
+            <Card className="hover:border-primary transition-colors cursor-pointer h-full">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">AI Summarizer</CardTitle>
+                <Lightbulb className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <p className="text-xs text-muted-foreground">Summarize your learning materials.</p>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link href="/notes">
+            <Card className="hover:border-primary transition-colors cursor-pointer h-full">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Notes</CardTitle>
+                <FileText className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <p className="text-xs text-muted-foreground">Take and manage your notes.</p>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link href="/time-management">
+            <Card className="hover:border-primary transition-colors cursor-pointer h-full">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Time Management</CardTitle>
+                <Clock className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <p className="text-xs text-muted-foreground">Manage your tasks and schedule.</p>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -398,3 +438,5 @@ function StudyPlanGenerator({ courses }: { courses: Course[] }) {
     </Dialog>
   );
 }
+
+    
