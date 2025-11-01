@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Home, Lightbulb, Bot, FileText, Clock } from 'lucide-react';
+import { Home, Lightbulb, Bot, FileText, Clock, GraduationCap } from 'lucide-react';
 
 import {
   Sidebar,
@@ -73,6 +73,18 @@ export function AppSidebar() {
               <Link href="/time-management">
                 <Clock />
                 <span>Time Management</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              isActive={pathname === '/master-classes'}
+              tooltip="Master Classes"
+            >
+              <Link href="/master-classes">
+                <GraduationCap />
+                <span>Master Classes</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
