@@ -96,98 +96,42 @@ export function DashboardClient() {
   });
 
   return (
-    <div className="grid gap-8">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Courses</CardTitle>
-            <BookOpen className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{courses.length}</div>
-            <p className="text-xs text-muted-foreground">You are enrolled in {courses.length} courses.</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Assignments Due</CardTitle>
-            <Target className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{allAssignments.filter(a => !a.isCompleted).length}</div>
-            <p className="text-xs text-muted-foreground">{completedAssignments.length} completed</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Overall Progress</CardTitle>
-            <BarChartIcon className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{Math.round(overallProgress)}%</div>
-            <Progress value={overallProgress} className="mt-2 h-2" />
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Focus Mode</CardTitle>
-            <SlidersHorizontal className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-             <div className="text-2xl font-bold">{focusLevel}%</div>
-             <Slider
-                value={[focusLevel]}
-                onValueChange={(value) => setFocusLevel(value[0])}
-                max={100}
-                step={1}
-                className="my-2"
-              />
-          </CardContent>
-        </Card>
-        <StudyPlanGenerator courses={courses} />
-      </div>
-
-      <div>
-        <h2 className="text-xl font-semibold mb-4">Quick Access</h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Link href="/summarizer">
-            <Card className="hover:border-primary transition-colors cursor-pointer h-full">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">AI Summarizer</CardTitle>
-                <Lightbulb className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs text-muted-foreground">Summarize your learning materials.</p>
-              </CardContent>
-            </Card>
-          </Link>
-          <Link href="/notes">
-            <Card className="hover:border-primary transition-colors cursor-pointer h-full">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Notes</CardTitle>
-                <FileText className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs text-muted-foreground">Take and manage your notes.</p>
-              </CardContent>
-            </Card>
-          </Link>
-          <Link href="/time-management">
-            <Card className="hover:border-primary transition-colors cursor-pointer h-full">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Time Management</CardTitle>
-                <Clock className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs text-muted-foreground">Manage your tasks and schedule.</p>
-              </CardContent>
-            </Card>
-          </Link>
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      {/* Main Content */}
+      <div className="lg:col-span-3 space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Total Courses</CardTitle>
+              <BookOpen className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{courses.length}</div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Assignments Due</CardTitle>
+              <Target className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{allAssignments.filter(a => !a.isCompleted).length}</div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Overall Progress</CardTitle>
+              <BarChartIcon className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{Math.round(overallProgress)}%</div>
+              <Progress value={overallProgress} className="mt-2 h-2" />
+            </CardContent>
+          </Card>
+          <StudyPlanGenerator courses={courses} />
         </div>
-      </div>
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-        <Card className="lg:col-span-2">
+        <Card>
           <CardHeader>
             <CardTitle>My Courses</CardTitle>
             <CardDescription>Click on a course to view assignments.</CardDescription>
@@ -198,8 +142,10 @@ export function DashboardClient() {
                 <DialogTrigger asChild>
                   <Card className="cursor-pointer hover:border-primary transition-colors">
                     <CardHeader className="flex-row items-center gap-4 space-y-0">
-                      <course.icon className="h-8 w-8 text-primary" />
-                      <CardTitle>{course.name}</CardTitle>
+                      <div className="p-3 rounded-full bg-primary/10">
+                        <course.icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <CardTitle className="text-base">{course.name}</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-muted-foreground">{course.assignments.length} assignments</p>
@@ -211,6 +157,43 @@ export function DashboardClient() {
           </CardContent>
         </Card>
         
+        <Card>
+          <CardHeader>
+            <CardTitle>Progress by Course</CardTitle>
+            <CardDescription>Percentage of assignments completed in each course.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={{ progress: { label: 'Progress', color: 'hsl(var(--primary))' } }} className="h-64">
+              <BarChart data={chartData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
+                <CartesianGrid vertical={false} />
+                <XAxis dataKey="name" tickLine={false} axisLine={false} tickMargin={8} fontSize={12} />
+                <YAxis unit="%" />
+                <RechartsTooltip content={<ChartTooltipContent />} />
+                <Bar dataKey="progress" fill="hsl(var(--primary))" radius={4} />
+              </BarChart>
+            </ChartContainer>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Sidebar */}
+      <div className="lg:col-span-1 space-y-6">
+         <Card>
+          <CardHeader>
+            <CardTitle>Focus Mode</CardTitle>
+          </CardHeader>
+          <CardContent>
+             <div className="text-center text-2xl font-bold mb-2">{focusLevel}%</div>
+             <Slider
+                value={[focusLevel]}
+                onValueChange={(value) => setFocusLevel(value[0])}
+                max={100}
+                step={1}
+                className="my-2"
+              />
+              <Button className="w-full mt-2">Start Focus Session</Button>
+          </CardContent>
+        </Card>
         <Card>
           <CardHeader>
             <CardTitle>Upcoming Deadlines</CardTitle>
@@ -240,25 +223,30 @@ export function DashboardClient() {
             )}
           </CardContent>
         </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Quick Access</CardTitle>
+          </CardHeader>
+          <CardContent className="grid grid-cols-1 gap-2">
+            <Link href="/summarizer">
+              <Button variant="ghost" className="w-full justify-start gap-2">
+                <Lightbulb className="h-4 w-4" /> AI Summarizer
+              </Button>
+            </Link>
+            <Link href="/notes">
+              <Button variant="ghost" className="w-full justify-start gap-2">
+                <FileText className="h-4 w-4" /> Notes
+              </Button>
+            </Link>
+            <Link href="/time-management">
+              <Button variant="ghost" className="w-full justify-start gap-2">
+                <Clock className="h-4 w-4" /> Time Management
+              </Button>
+            </Link>
+          </CardContent>
+        </Card>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Progress by Course</CardTitle>
-          <CardDescription>Percentage of assignments completed in each course.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={{ progress: { label: 'Progress', color: 'hsl(var(--primary))' } }} className="h-64">
-            <BarChart data={chartData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
-              <CartesianGrid vertical={false} />
-              <XAxis dataKey="name" tickLine={false} axisLine={false} tickMargin={8} />
-              <YAxis unit="%" />
-              <RechartsTooltip content={<ChartTooltipContent />} />
-              <Bar dataKey="progress" fill="hsl(var(--primary))" radius={4} />
-            </BarChart>
-          </ChartContainer>
-        </CardContent>
-      </Card>
 
       {selectedCourse && (
         <Dialog open={!!selectedCourse} onOpenChange={(isOpen) => !isOpen && setSelectedCourse(null)}>
@@ -438,5 +426,3 @@ function StudyPlanGenerator({ courses }: { courses: Course[] }) {
     </Dialog>
   );
 }
-
-    
