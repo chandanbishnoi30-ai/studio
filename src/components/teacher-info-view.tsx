@@ -13,7 +13,7 @@ const teachers = [
   {
     name: 'Arvind Khilery',
     subject: 'Maths',
-    avatar: '',
+    avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704e',
     fallback: 'AK',
     experience: '7 years',
   },
@@ -25,10 +25,10 @@ const teachers = [
     experience: '3 years',
   },
   {
-    name: 'Arvind Godara Phalodi',
+    name: 'Arvind Udani',
     subject: '',
     avatar: '',
-    fallback: 'AG',
+    fallback: 'AU',
     experience: '7 years',
   },
 ];
