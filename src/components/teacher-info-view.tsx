@@ -18,7 +18,7 @@ const teachers = [
   },
   {
     name: 'Abhay Jatan',
-    subject: 'Home Science',
+    subject: 'time pass',
     avatar: 'https://i.pravatar.cc/150?u=joker',
     fallback: 'AJ',
   },
