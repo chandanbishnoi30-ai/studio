@@ -238,11 +238,6 @@ export function DashboardClient() {
                 <FileText className="h-4 w-4" /> Notes
               </Button>
             </Link>
-            <Link href="/time-management">
-              <Button variant="ghost" className="w-full justify-start gap-2">
-                <Clock className="h-4 w-4" /> Time Management
-              </Button>
-            </Link>
           </CardContent>
         </Card>
       </div>

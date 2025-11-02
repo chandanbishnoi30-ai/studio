@@ -21,7 +21,6 @@ export function AppHeader() {
     if (pathname === '/') return 'Dashboard';
     if (pathname === '/summarizer') return 'AI Summarizer';
     if (pathname === '/notes') return 'Notes';
-    if (pathname === '/time-management') return 'Time Management';
     if (pathname === '/master-classes') return 'Master Classes';
     if (pathname === '/motivational-books') return 'Motivational Books';
     if (pathname === '/teacher-info') return 'Teacher Info';
