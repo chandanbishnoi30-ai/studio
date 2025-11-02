@@ -15,6 +15,7 @@ const teachers = [
     subject: 'Maths',
     avatar: '',
     fallback: 'AK',
+    experience: '7 years',
   },
   {
     name: 'Abhay Jatan',
@@ -47,6 +48,13 @@ export function TeacherInfoView() {
                   </p>
                 </div>
               </CardHeader>
+              {teacher.experience && (
+                <CardContent>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    Experience: {teacher.experience}
+                  </p>
+                </CardContent>
+              )}
             </Card>
           ))}
         </CardContent>
