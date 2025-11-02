@@ -16,6 +16,12 @@ const teachers = [
     avatar: '',
     fallback: 'AK',
   },
+  {
+    name: 'Abhay Jatan',
+    subject: '',
+    avatar: '',
+    fallback: 'AJ',
+  },
 ];
 
 export function TeacherInfoView() {
