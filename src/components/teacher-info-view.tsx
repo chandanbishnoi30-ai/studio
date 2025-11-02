@@ -24,6 +24,13 @@ const teachers = [
     fallback: 'AJ',
     experience: '3 years',
   },
+  {
+    name: 'Arvind Godara Phalodi',
+    subject: '',
+    avatar: '',
+    fallback: 'AG',
+    experience: '',
+  },
 ];
 
 export function TeacherInfoView() {
