@@ -182,16 +182,17 @@ export function DashboardClient() {
           <CardHeader>
             <CardTitle>Focus Mode</CardTitle>
           </CardHeader>
-          <CardContent>
-             <div className="text-center text-2xl font-bold mb-2">{focusLevel}%</div>
+          <CardContent className="space-y-4">
              <Slider
                 value={[focusLevel]}
                 onValueChange={(value) => setFocusLevel(value[0])}
                 max={100}
                 step={1}
-                className="my-2"
               />
-              <Button className="w-full mt-2">Start Focus Session</Button>
+              <div className="flex items-center justify-between">
+                <div className="text-lg font-bold">{focusLevel}%</div>
+                <Button>Start Session</Button>
+              </div>
           </CardContent>
         </Card>
         <Card>
