@@ -13,7 +13,7 @@ const teachers = [
   {
     name: 'Arvind Khilery',
     subject: 'Maths',
-    avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
+    avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704e',
     fallback: 'AK',
   },
 ];
