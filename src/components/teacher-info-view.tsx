@@ -29,7 +29,7 @@ const teachers = [
     subject: '',
     avatar: '',
     fallback: 'AG',
-    experience: '',
+    experience: '7 years',
   },
 ];
 
