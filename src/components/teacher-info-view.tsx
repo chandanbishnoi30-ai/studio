@@ -19,7 +19,7 @@ const teachers = [
   },
   {
     name: 'Abhay Jatan',
-    subject: 'time pass',
+    subject: 'Biology',
     avatar: 'https://i.pravatar.cc/150?u=joker',
     fallback: 'AJ',
     experience: '3 years',
