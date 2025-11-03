@@ -1,5 +1,5 @@
 import type { Course } from '@/lib/types';
-import { BookOpen, Calculator, Dna, FlaskConical, Globe } from 'lucide-react';
+import { BookOpen, Calculator, Dna, FlaskConical, Globe, History, BrainCircuit } from 'lucide-react';
 import { addDays, formatISO } from 'date-fns';
 
 export const MOCK_COURSES: Course[] = [
@@ -49,6 +49,24 @@ export const MOCK_COURSES: Course[] = [
     assignments: [
       { id: 'c5-a1', name: 'Shakespeare Analysis', dueDate: formatISO(addDays(new Date(), 18)), isCompleted: false },
       { id: 'c5-a2', name: 'Poetry Portfolio', dueDate: formatISO(addDays(new Date(), 40)), isCompleted: false },
+    ],
+  },
+  {
+    id: 'course-6',
+    name: 'Psychology 101',
+    icon: BrainCircuit,
+    assignments: [
+      { id: 'c6-a1', name: 'Case Study 1', dueDate: formatISO(addDays(new Date(), 7)), isCompleted: false },
+      { id: 'c6-a2', name: 'Midterm Paper', dueDate: formatISO(addDays(new Date(), 30)), isCompleted: false },
+    ],
+  },
+  {
+    id: 'course-7',
+    name: 'Art History',
+    icon: History,
+    assignments: [
+      { id: 'c7-a1', name: 'Museum Visit Report', dueDate: formatISO(addDays(new Date(), 15)), isCompleted: false },
+      { id: 'c7-a2', name: 'Final Presentation', dueDate: formatISO(addDays(new Date(), 45)), isCompleted: false },
     ],
   },
 ];
